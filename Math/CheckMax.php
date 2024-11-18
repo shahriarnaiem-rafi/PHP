@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super globla variable</title>
+    <title>Check Max Number</title>
 </head>
 <body>
 <form action="" method="post">
@@ -23,9 +23,9 @@
             $b=$_POST['number1'];
             $c=$_POST['number2'];
 
-            echo " $a: <br><br>";
-            echo " $b: <br><br>";
-            echo " $c: <br><br>";
+            echo " $a <br><br>";
+            echo " $b <br><br>";
+            echo " $c <br><br>";
 
             
             if($a>$b && $a>$c){
@@ -40,8 +40,8 @@
             echo "<br>";
 
 //const == define();
-            define("Shah","welcome to w3school");
-            echo Shah;
+            define("name","welcome to SNR Company");
+            echo name;
 
         }
     ?>
