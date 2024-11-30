@@ -4,51 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
+    <title>form</title>
 </head>
 
 <body>
-
     <form action="#" method="post">
-        <fieldset>
-            <label for="">Name</label>
-            <input type="text" placeholder="name" name="name"><br>
-            <label for="">Password</label>
-            <input type="password" placeholder="Password" name="password"><br>
+        Name
+        <input type="text" name="name" placeholder="enter name"><br><br>
+        email
+        <input type="text" name="email" placeholder="enter email"><br><br>
+        Password
+        <input type="password" name="password" placeholder="enter password"><br><br>
+        <input type="submit" name="submit" value="Submit">
 
-            <br>
-
-            <input type="submit" value="Submit" name="submit">
-            <input type="reset" value="Reset" ><br>
-
-        </fieldset>
     </form>
-
+    <br>
     <?php
-    if (isset($_POST['submit'])) {
-
+    if (isset($_POST["submit"])) {
         $name = $_POST['name'];
-        $password = $_POST['password'];
-
-
-        $nameNan = "/^[a-zA-Z]{4,8}$/";
-        
+        $nameNan = "/^[A-Za-z]{2,8}$/";
         if (!preg_match($nameNan, $name)) {
-            
-            echo "enter a valid name";
+            echo "please enter a vlid name <br>";
+        } else {
+
+            echo $name."<br>";
+        }
+        $email = $_POST['email'];
+
+        $emailNan = "/^[A-Za-z)-9]+@[a-z]+\.[a-z]{2,8}$/";
+        if (!preg_match($emailNan, $email)) {
+            echo "please enter a vlid email<br>";
+        } else {
+
+            echo $email."<br>"; 
+        }
+
+        $password = $_POST['password'];
+        if($password==1234){
+            echo "$password";
         }
         else{
-            echo $name;
-        }
-        $password = $_POST['password'];
-        if ($password == 4321) {
-            echo "<br>$password";
-        }else{
-            echo "<br>enter a vlid pass";
+            echo " ja bag";
         }
     }
     ?>
-
 </body>
 
 </html>
