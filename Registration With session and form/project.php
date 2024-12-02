@@ -1,28 +1,23 @@
-<?php session_start();?>
+
 <?php
+session_start();
+if(!isset($_SESSION["raji"])){
+    header("location:index.php");
+}
 if (isset($_POST['submitted'])) {
     $img = "img/";
     $name = $_POST['name'];
     $email = $_POST['email'];
     $emailNan = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/";;
 
-
     $password = $_POST['password'];
-
 
     $filename = $_FILES["my-file"]["name"];
     $temp = $_FILES["my-file"]["tmp_name"];
     $size = $_FILES["my-file"]["size"];
     $in = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
-
     $kb = 100 * 1024;
 }
-
-
-
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -58,7 +53,7 @@ if (isset($_POST['submitted'])) {
 <body>
     <div>
         <h2 style="text-align: center;">Registration Form</h2>
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <label>Name</label><br>
             <input type="text" name="name" placeholder="Enter your name " required><br>
             <label>Email</label><br>
@@ -70,7 +65,7 @@ if (isset($_POST['submitted'])) {
             <input type="file" name="my-file">
             <br>
             <input type="submit" value="Submit" name="submitted">
-
+            <a href="logout.php">out</a>
             <br><br><br>
 
         </form>
@@ -100,6 +95,7 @@ if (isset($_POST['submitted'])) {
                 $img = "img/";
                 echo "resulation is too hight<br>";
             }
+            //type chekck
             else if(!in_array($in,["jpg","webp"])){
                 echo "type invalid";
             }
